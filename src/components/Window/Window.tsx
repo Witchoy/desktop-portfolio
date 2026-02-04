@@ -16,16 +16,17 @@ interface WindowProps {
 export const Window: React.FC<WindowProps> = (win: WindowProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const dragOffset = useRef<Position>({ x: 0, y: 0 });
+  const { onPositionChange, onFocus, position } = win; // Destructure for easier access and linting
 
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsDragging(true);
-    win.onFocus();
+    onFocus();
     
     // Calculate offset between mouse position and window top-left corner
     dragOffset.current = {
-      x: e.clientX - win.position.x,
-      y: e.clientY - win.position.y,
+      x: e.clientX - position.x,
+      y: e.clientY - position.y,
     };
   };
 
@@ -33,7 +34,7 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
     if (!isDragging) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      win.onPositionChange({
+      onPositionChange({
         x: e.clientX - dragOffset.current.x,
         y: e.clientY - dragOffset.current.y,
       });
@@ -50,14 +51,14 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging, win.onPositionChange]);
+  }, [isDragging, onPositionChange]);
 
   return (
     <div 
       className="window"
-      onClick={win.onFocus}
+      onClick={onFocus}
       style={{ 
-        transform: `translate(${win.position.x}px, ${win.position.y}px)`,
+        transform: `translate(${position.x}px, ${position.y}px)`,
         zIndex: win.zIndex,
       }}
     >
