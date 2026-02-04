@@ -1,86 +1,84 @@
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Window.scss';
+import type { Position } from '../../types';
 
 interface WindowProps {
-  isOpen: boolean;
+  id: string;
   title: string;
-  children: ReactNode;
+  position: Position;
+  zIndex: number;
+  children: React.ReactNode;
   onClose: () => void;
+  onPositionChange: (pos: Position) => void;
+  onFocus: () => void;
 }
 
-export const Window: React.FC<WindowProps> = ({
-  isOpen,
-  title,
-  children,
-  onClose,
-}) => {
-  if (!isOpen) return null;
-
+export const Window: React.FC<WindowProps> = (win: WindowProps) => {
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const dragOffset = useRef<Position>({ x: 0, y: 0 });
 
-  const startPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-
-  const windowRef = useRef<HTMLDivElement>(null);
-
-  // Function to handle mouse mouvement while dragging
-  const onMouseMove = useCallback((e: MouseEvent) => {
-    if (!isDragging) return;
-    setPosition({
-      x: e.clientX - startPos.current.x,
-      y: e.clientY - startPos.current.y,
-    });
-  }, [isDragging]);
-
-  // Function to handle the end of the drag event
-  const onMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  // Function to handle the start of the drag event
-  const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
     setIsDragging(true);
-    startPos.current = {
-      x: e.clientX - position.x,
-      y: e.clientY - position.y,
+    win.onFocus();
+    
+    // Calculate offset between mouse position and window top-left corner
+    dragOffset.current = {
+      x: e.clientX - win.position.x,
+      y: e.clientY - win.position.y,
     };
   };
 
-  // Reset position when the window is closed
   useEffect(() => {
-    if (!isOpen) {
-      setPosition({ x: 0, y: 0 });
-    }
-  }, [isOpen]);
+    if (!isDragging) return;
 
-  // Add and clean up event listeners for dragging
-  useEffect(() => {
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', onMouseUp);
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseup', onMouseUp);
+    const handleMouseMove = (e: MouseEvent) => {
+      win.onPositionChange({
+        x: e.clientX - dragOffset.current.x,
+        y: e.clientY - dragOffset.current.y,
+      });
     };
-  }, [onMouseMove]);
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging, win.onPositionChange]);
 
   return (
-    <div className="window-overlay" onClick={onClose}>
+    <div 
+      className="window"
+      onClick={win.onFocus}
+      style={{ 
+        transform: `translate(${win.position.x}px, ${win.position.y}px)`,
+        zIndex: win.zIndex,
+      }}
+    >
       <div 
-        className="window"
-        ref={windowRef}
-        onClick={(e) => e.stopPropagation()}
-        style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
+        className="window-header" 
+        onMouseDown={handleMouseDown}
+        style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
       >
-        <div className="window-header" onMouseDown={onMouseDown}>
-          <span className="window-title">{title}</span>
-          <button className="window-close" onClick={onClose}>
-            x
-          </button>
-        </div>
-        <div className="window-content">
-          {children}
-        </div>
+        <span className="window-title">{win.title}</span>
+        <button 
+          className="window-close" 
+          onClick={(e) => {
+            e.stopPropagation();
+            win.onClose();
+          }}
+        >
+          x
+        </button>
+      </div>
+      <div className="window-content">
+        {win.children}
       </div>
     </div>
   );
