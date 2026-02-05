@@ -41,6 +41,11 @@
     }
   }
 
+  &-content {
+    height: calc(100% - 30px);
+    overflow: hidden;
+  }
+
   &-resize {
     position: absolute;
     width: 5px;
@@ -51,6 +56,4 @@
     cursor: se-resize;
     background: transparent;
   }
-
-
 }
