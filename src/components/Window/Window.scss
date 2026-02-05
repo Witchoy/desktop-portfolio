@@ -1,16 +1,16 @@
-@import '../../assets/style/variables.scss';
+@use '../../assets/style/variables.scss' as var;
 
 .window {
   position: fixed;
-  background: $gb-bg-cream;
-  border: 2px solid $gb-bg-medium;
+  background: var.$gb-bg-cream;
+  border: 2px solid var.$gb-bg-medium;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba($gb-bg-dark, 0.5);
+  box-shadow: 0 4px 12px rgba(var.$gb-bg-dark, 0.5);
   width: 300px;
 
   &-header {
-    background: $gb-bg-medium;
-    border-bottom: 2px solid $gb-bg-dark;
+    background: var.$gb-bg-medium;
+    border-bottom: 2px solid var.$gb-bg-dark;
     padding: 12px 16px;
     display: flex;
     justify-content: space-between;
@@ -21,13 +21,13 @@
   &-title {
     font-weight: 600;
     font-size: 14px;
-    color: $gb-text-dark;
+    color: var.$gb-text-dark;
   }
   
   &-close {
     border: none;
-    background: $gb-accent-red;
-    color: $gb-text-dark;
+    background: var.$gb-accent-red;
+    color: var.$gb-text-dark;
     border-radius: 4px;
     padding: 5px 10px;
     cursor: pointer;
@@ -35,12 +35,12 @@
     transition: background 0.2s;
     
     &:hover {
-      background: $gb-accent-orange-bright;
+      background: var.$gb-accent-orange-bright;
     }
   }
   
   &-content {
     padding: 20px;
-    color: $gb-text-light;
+    color: var.$gb-text-light;
   }
 }

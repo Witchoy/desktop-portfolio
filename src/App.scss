@@ -7,39 +7,4 @@ html, body {
   position: fixed;
   inset: 0;
   background: #2c2c2c;
-  
-  .desktop-buttons {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: -1;
-  }
-
-  .desktop-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: transparent;
-    color: white;
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-    width: 60px;
-    
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    img {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 4px;
-      filter: invert(1);
-    }
-  }
 }

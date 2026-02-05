@@ -10,3 +10,10 @@ export interface WindowData {
   position: Position;
   zIndex: number;
 }
+
+export interface DesktopIconData {
+  id: string;
+  icon: string;
+  title: string;
+  position: Position;
+}
