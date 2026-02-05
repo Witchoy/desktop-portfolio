@@ -8,9 +8,10 @@
   width: 300px;
 
   &-header {
-    background: var.$gb-bg-medium;
+    background: var.$gb-bg-cream;  
     border-bottom: 2px solid var.$gb-bg-dark;
-    padding: 12px 16px;
+    border-radius: 8px 8px 0 0;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,16 +26,16 @@
   
   &-close {
     border: none;
-    background: var.$gb-accent-red;
-    color: var.$gb-text-dark;
-    border-radius: 4px;
-    padding: 5px 10px;
+    background: transparent;
+    padding: 0;
+    margin: 0;
     cursor: pointer;
     font-weight: bold;
-    transition: background 0.2s;
-    
-    &:hover {
-      background: var.$gb-accent-orange-bright;
-    }
+  }
+
+  &-close-icon {
+  color: var.$gb-accent-red;
+  font-size: 12px;
+  transition: background 0.2s;
   }
 }

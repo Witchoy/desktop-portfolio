@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './Window.scss';
 import type { Position } from '../../types';
+import { FaCircle } from "react-icons/fa";
 
 interface WindowProps {
   id: string;
@@ -67,7 +68,6 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
         onMouseDown={handleMouseDown}
         style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
       >
-        <span className="window-title">{win.title}</span>
         <button 
           className="window-close" 
           onClick={(e) => {
@@ -75,8 +75,9 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
             win.onClose();
           }}
         >
-          x
+          <FaCircle className="window-close-icon" />
         </button>
+        <span className="window-title">{win.title}</span>
       </div>
       <div className="window-content">
         {win.children}
