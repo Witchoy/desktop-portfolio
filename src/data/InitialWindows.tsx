@@ -9,6 +9,7 @@ const INITIAL_WINDOWS: WindowData[] = [
     position: { x: window.innerWidth / 2, 
                 y: window.innerHeight / 2 },
     zIndex: 1,
+    size: { width: 400, height: 300 },
   },
   {
     id: 'projects',
@@ -17,6 +18,7 @@ const INITIAL_WINDOWS: WindowData[] = [
     position: { x: window.innerWidth / 2, 
                 y: window.innerHeight / 2 },
     zIndex: 1,
+    size: { width: 400, height: 300 },
   }
 ];
 

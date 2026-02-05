@@ -3,11 +3,17 @@ export interface Position {
   y: number;
 }
 
+export interface Size {
+  width: number;
+  height: number;
+}
+
 export interface WindowData {
   id: string;
   title: string;
   content: React.ReactNode;
   position: Position;
+  size: Size;
   zIndex: number;
 }
 

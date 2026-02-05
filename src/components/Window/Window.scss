@@ -6,6 +6,8 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(var.$gb-bg-dark, 0.5);
   width: 300px;
+  min-width: fit-content;
+  min-height: fit-content;
 
   &-header {
     background: var.$gb-bg-cream;  
@@ -31,11 +33,24 @@
     margin: 0;
     cursor: pointer;
     font-weight: bold;
+
+    &-icon {
+      color: var.$gb-accent-red;
+      font-size: 12px;
+      transition: background 0.2s;
+    }
   }
 
-  &-close-icon {
-  color: var.$gb-accent-red;
-  font-size: 12px;
-  transition: background 0.2s;
+  &-resize {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border: none;
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+    background: transparent;
   }
+
+
 }

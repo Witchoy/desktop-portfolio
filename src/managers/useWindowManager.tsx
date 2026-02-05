@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Position, WindowData } from "../types";
+import type { Position, Size, WindowData } from "../types";
 import INITIAL_WINDOWS from "../data/InitialWindows";
 
 export default function useWindowManager() {
@@ -25,6 +25,12 @@ export default function useWindowManager() {
     ));
   };
 
+  const updateWindowSize = (id: string, size: Size) => {
+    setWindows(prev => prev.map(win =>
+      win.id === id ? { ...win, size } : win
+    ));
+  }
+
   const bringToFront = (id: string) => {
     setWindows(prev => {
       const maxZ = Math.max(...prev.map(w => w.zIndex), 0);
@@ -42,6 +48,7 @@ export default function useWindowManager() {
     openWindow,
     closeWindow,
     updateWindowPosition,
+    updateWindowSize,
     bringToFront,
   };
 };

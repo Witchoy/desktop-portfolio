@@ -7,7 +7,7 @@ import './App.scss';
 import DesktopIcon from './components/DesktopWindow/DesktopIcon';
 
 const App: FC = () => {
-  const { windows, openWindow, closeWindow, updateWindowPosition, bringToFront } = useWindowManager();
+  const { windows, openWindow, closeWindow, updateWindowPosition, updateWindowSize, bringToFront } = useWindowManager();
   const { icons, updateIconPosition } = useDesktopIconManager();
 
   return (
@@ -32,9 +32,11 @@ const App: FC = () => {
           id={win.id}
           title={win.title}
           position={win.position}
+          size={win.size}
           zIndex={win.zIndex}
           onClose={() => closeWindow(win.id)}
           onPositionChange={(pos) => updateWindowPosition(win.id, pos)}
+          onSizeChange={(size) => updateWindowSize(win.id, size)}
           onFocus={() => bringToFront(win.id)}
         >
           {win.content}
