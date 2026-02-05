@@ -28,9 +28,12 @@ export default function useWindowManager() {
   const bringToFront = (id: string) => {
     setWindows(prev => {
       const maxZ = Math.max(...prev.map(w => w.zIndex), 0);
-      return prev.map(win =>
-        win.id === id ? { ...win, zIndex: maxZ + 1 } : win
-      );
+      return prev.map(win => {
+        if(win.zIndex < maxZ && win.id === id) {
+          return { ...win, zIndex: maxZ + 1 };
+        }
+        return win;
+      });
     });
   };
 
