@@ -20,13 +20,7 @@ const App: FC = () => {
           icon={icon.icon}
           title={icon.title}
           position={icon.position}
-          onDoubleClick={() => openWindow({
-            id: icon.id,
-            title: icon.title,
-            content: <div>{icon.title} Content</div>,
-            position: { x: window.innerWidth / 2 - 75, y: window.innerHeight / 2 - 75 },
-            zIndex: 1,
-          })}
+          onDoubleClick={() => openWindow(icon.id)}
           onPositionChange={(pos) => updateIconPosition(icon.id, pos)}
           onFocus={() => bringToFront(icon.id)}
         />

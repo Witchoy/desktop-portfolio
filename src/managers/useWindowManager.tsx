@@ -1,13 +1,16 @@
 import { useState } from "react";
 import type { Position, WindowData } from "../types";
+import INITIAL_WINDOWS from "../data/InitialWindows";
 
 export default function useWindowManager() {
   const [windows, setWindows] = useState<WindowData[]>([]);
 
-  const openWindow = (windowData: WindowData) => {
+  const openWindow = (windowId: string) => {
     setWindows(prev => {
       // Check if window already exists using previous state
-      if (prev.find(win => win.id === windowData.id)) return prev;
+      if (prev.find(win => win.id === windowId)) return prev;
+      const windowData = INITIAL_WINDOWS.find(win => win.id === windowId);
+      if (!windowData) return prev;
       return [...prev, windowData];
     });
   };

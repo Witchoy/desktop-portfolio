@@ -2,7 +2,6 @@
 
 .window {
   position: fixed;
-  background: var.$gb-bg-cream;
   border: 2px solid var.$gb-bg-medium;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(var.$gb-bg-dark, 0.5);
@@ -37,10 +36,5 @@
     &:hover {
       background: var.$gb-accent-orange-bright;
     }
-  }
-  
-  &-content {
-    padding: 20px;
-    color: var.$gb-text-light;
   }
 }
