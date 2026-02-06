@@ -2,45 +2,53 @@
 
 
 .about-me {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem;
   background-color: var.$gb-bg-dark;
   color: var.$gb-text-light;
   height: 100%;
-  box-sizing: border-box;
   border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+    
+  .about-me-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
 
-  &-profile {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var.$gb-accent-orange;
+    &-profile {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var.$gb-accent-orange;
+    }
+
+    &-container {
+      flex: 1;
+    }
+
+    &-name {
+      margin: 0 0 0.5rem 0;
+      font-size: 2rem;
+      color: var.$gb-accent-orange;
+    }
+
+    &-title {
+      margin: 0 0 1rem 0;
+      font-size: 1.2rem;
+      color: var.$gb-accent-blue;
+      font-weight: normal;
+    }
+
+    &-paragraph {
+      margin: 0;
+      font-size: 1rem;
+      color: var.$gb-text-muted;
+      line-height: 1.5;
+    }
   }
 
-  &-container {
-    flex: 1;
-  }
+  .about-me-container {
 
-  &-name {
-    margin: 0 0 0.5rem 0;
-    font-size: 2rem;
-    color: var.$gb-accent-orange;
-  }
-
-  &-title {
-    margin: 0 0 1rem 0;
-    font-size: 1.2rem;
-    color: var.$gb-accent-blue;
-    font-weight: normal;
-  }
-
-  &-paragraph {
-    margin: 0;
-    font-size: 1rem;
-    color: var.$gb-text-muted;
-    line-height: 1.5;
   }
 }
