@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Position, DesktopIconData } from "../types";
-import INITIAL_ICONS from "../data/InitialIcons";
+import { INITIAL_ICONS } from "../data/InitialDatas";
 
 export default function useDesktopIconManager() {
   const [icons, setIcons] = useState<DesktopIconData[]>(INITIAL_ICONS);

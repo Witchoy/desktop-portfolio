@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Position, Size, WindowData } from "../types";
-import INITIAL_WINDOWS from "../data/InitialWindows";
+import { INITIAL_WINDOWS } from "../data/InitialDatas";
 
 export default function useWindowManager() {
   const [windows, setWindows] = useState<WindowData[]>([]);

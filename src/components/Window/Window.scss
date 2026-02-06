@@ -14,19 +14,19 @@
     background: var.$gb-bg-cream;  
     border-bottom: 2px solid var.$gb-bg-dark;
     border-radius: var.$border-radius-medium var.$border-radius-medium 0 0;
-    padding: 5px;
+    padding: var.$pace-x-small;
     display: flex;
     justify-content: space-between;
     align-items: center;
     user-select: none;
-    height: var.$space-rem-large;
+    height: var.$space-large;
   }
   
   &-title {
     font-weight: 600;
-    font-size: 14px;
+    font-size: var.$font-size-small;
     margin: 0;
-    margin-right: var.$space-rem-medium;
+    margin-right: var.$space-medium;
     color: var.$gb-text-dark;
   }
   
@@ -35,13 +35,13 @@
     background: transparent;
     padding: 0;
     margin: 0;
-    margin-left: var.$space-rem-medium;
+    margin-left: var.$space-medium;
     cursor: pointer;
     font-weight: bold;
 
     &-icon {
       color: var.$gb-accent-red;
-      font-size: 12px;
+      font-size: var.$font-size-x-small;
       transition: background 0.2s;
     }
   }
@@ -56,8 +56,8 @@
 
   &-resize {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: var.$space-small;
+    height: var.$space-small;
     border: none;
     bottom: 0;
     right: 0;

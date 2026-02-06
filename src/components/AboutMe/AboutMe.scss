@@ -5,17 +5,16 @@
   background-color: var.$gb-bg-dark;
   color: var.$gb-text-light;
   height: 100%;
-  border-radius: 0 0 var.$border-radius-small var.$border-radius-small;
   box-sizing: border-box;
-  padding-bottom: var.$space-rem-medium;
+  padding-bottom: var.$space-medium;
     
   .about-me-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var.$space-rem-medium;
-    padding: var.$space-rem-medium;
-    margin: 0 var.$space-rem-large 0 var.$space-rem-large;
+    gap: var.$space-medium;
+    padding: var.$space-medium;
+    margin: 0 var.$space-large 0 var.$space-large;
 
     &-profile {
       width: 120px;
@@ -30,13 +29,13 @@
     }
 
     &-name {
-      margin: 0 0 var.$space-rem-small 0;
+      margin: 0 0 var.$space-small 0;
       font-size: 2rem;
       color: var.$gb-accent-orange;
     }
 
     &-title {
-      margin: 0 0 var.$space-rem-small 0;
+      margin: 0 0 var.$space-small 0;
       font-size: 1.2rem;
       color: var.$gb-accent-blue;
       font-weight: normal;
@@ -53,8 +52,8 @@
   .about-me-body {
     background-color: var.$gb-bg-light;
     height: fit-content;
-    padding: var.$space-rem-medium;
-    margin: 0 var.$space-rem-large 0 var.$space-rem-large;
+    padding: var.$space-medium;
+    margin: 0 var.$space-large 0 var.$space-large;
     border-radius: var.$border-radius-medium;
   }
 }

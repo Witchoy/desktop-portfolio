@@ -16,9 +16,9 @@
     }
 
     &-title {
-        font-size: 12px;
+        font-size: var.$font-size-x-small;
         color: var.$gb-text-dark;
         text-align: center;
-        margin-top: 4px;
+        margin-top: var.$pace-x-small;
     }
 }

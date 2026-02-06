@@ -1,0 +1,26 @@
+@use "../../assets/style/variables.scss" as var;
+
+.projects {
+  background-color: var.$gb-bg-dark;
+  color: var.$gb-text-light;
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: var.$space-medium;
+
+  &-header {
+    display: flex;
+    justify-content: center;
+
+    &-title {
+      font-size: 2rem;
+      color: var.$gb-accent-orange;
+    }
+  }
+
+  &-cards-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: var.$space-medium;
+  }
+}

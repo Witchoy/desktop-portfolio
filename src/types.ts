@@ -8,6 +8,14 @@ export interface Size {
   height: number;
 }
 
+export interface ProjectData {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+}
+
 export interface WindowData {
   id: string;
   title: string;
