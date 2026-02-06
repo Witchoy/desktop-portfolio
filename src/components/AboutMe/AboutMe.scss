@@ -5,20 +5,21 @@
   background-color: var.$gb-bg-dark;
   color: var.$gb-text-light;
   height: 100%;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 var.$border-radius-medium var.$border-radius-medium;
   box-sizing: border-box;
     
   .about-me-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 2rem;
-    padding: 2rem;
+    gap: var.$space-rem-medium;
+    padding: var.$space-rem-medium;
+    margin: 0 var.$space-rem-large 0 var.$space-rem-large;
 
     &-profile {
       width: 120px;
       height: 120px;
-      border-radius: 50%;
+      border-radius: var.$border-radius-circle;
       object-fit: cover;
       border: 3px solid var.$gb-accent-orange;
     }
@@ -28,13 +29,13 @@
     }
 
     &-name {
-      margin: 0 0 0.5rem 0;
+      margin: 0 0 var.$space-rem-small 0;
       font-size: 2rem;
       color: var.$gb-accent-orange;
     }
 
     &-title {
-      margin: 0 0 1rem 0;
+      margin: 0 0 var.$space-rem-small 0;
       font-size: 1.2rem;
       color: var.$gb-accent-blue;
       font-weight: normal;
@@ -48,7 +49,11 @@
     }
   }
 
-  .about-me-container {
-
+  .about-me-body {
+    background-color: var.$gb-bg-light;
+    height: fit-content;
+    padding: var.$space-rem-medium;
+    margin: 0 var.$space-rem-large 0 var.$space-rem-large;
+    border-radius: var.$border-radius-medium;
   }
 }

@@ -6,10 +6,10 @@ const INITIAL_WINDOWS: WindowData[] = [
     id: 'about-me',
     title: 'About Me',
     content: <AboutMe />,
-    position: { x: window.innerWidth / 2, 
-                y: window.innerHeight / 2 },
+    position: { x: 250, 
+                y: 50 },
     zIndex: 1,
-    size: { width: 400, height: 300 },
+    size: { width: 900, height: 600 },
     minSize: { width: 300, height: 200 },
   },
   {
@@ -19,7 +19,7 @@ const INITIAL_WINDOWS: WindowData[] = [
     position: { x: window.innerWidth / 2, 
                 y: window.innerHeight / 2 },
     zIndex: 1,
-    size: { width: 400, height: 300 },
+    size: { width: 900, height: 600 },
     minSize: { width: 300, height: 200 },
   }
 ];

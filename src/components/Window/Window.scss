@@ -3,14 +3,14 @@
 .window {
   position: fixed;
   border: 2px solid var.$gb-bg-medium;
-  border-radius: 8px;
+  border-radius: var.$border-radius-medium;
   box-shadow: 0 4px 12px rgba(var.$gb-bg-dark, 0.5);
   width: 300px;
 
   &-header {
     background: var.$gb-bg-cream;  
     border-bottom: 2px solid var.$gb-bg-dark;
-    border-radius: 8px 8px 0 0;
+    border-radius: var.$border-radius-medium var.$border-radius-medium 0 0;
     padding: 5px;
     display: flex;
     justify-content: space-between;
@@ -21,6 +21,8 @@
   &-title {
     font-weight: 600;
     font-size: 14px;
+    margin: 0;
+    margin-right: var.$space-rem-medium;
     color: var.$gb-text-dark;
   }
   
@@ -29,6 +31,7 @@
     background: transparent;
     padding: 0;
     margin: 0;
+    margin-left: var.$space-rem-medium;
     cursor: pointer;
     font-weight: bold;
 
