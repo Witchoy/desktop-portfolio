@@ -6,6 +6,7 @@ import { FaCircle } from "react-icons/fa";
 interface WindowProps {
   id: string;
   title: string;
+  customClass?: string;
   position: Position;
   size: Size;
   minSize: Size;
@@ -37,7 +38,6 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
   };
 
   const handleResize = (e: React.MouseEvent) => {
-    console.log('resize handle mouse down');
     e.preventDefault();
     setIsResizing(true);
     onFocus();
@@ -127,7 +127,7 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
         </button>
         <span className="window-title">{win.title}</span>
       </div>
-      <div className="window-content">
+      <div className={`window-content ${win.customClass}`}>
         {win.children}
       </div>
       <button className="window-resize" onMouseDown={handleResize}/>

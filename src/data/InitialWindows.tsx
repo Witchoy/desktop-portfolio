@@ -6,6 +6,7 @@ const INITIAL_WINDOWS: WindowData[] = [
     id: 'about-me',
     title: 'About Me',
     content: <AboutMe />,
+    customClass: 'content-background',
     position: { x: 250, 
                 y: 50 },
     zIndex: 1,

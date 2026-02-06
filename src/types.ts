@@ -12,6 +12,7 @@ export interface WindowData {
   id: string;
   title: string;
   content: React.ReactNode;
+  customClass?: string;
   position: Position;
   size: Size;
   minSize: Size;

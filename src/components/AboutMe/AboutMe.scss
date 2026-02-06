@@ -5,8 +5,9 @@
   background-color: var.$gb-bg-dark;
   color: var.$gb-text-light;
   height: 100%;
-  border-radius: 0 0 var.$border-radius-medium var.$border-radius-medium;
+  border-radius: 0 0 var.$border-radius-small var.$border-radius-small;
   box-sizing: border-box;
+  padding-bottom: var.$space-rem-medium;
     
   .about-me-header {
     display: flex;

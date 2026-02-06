@@ -28,6 +28,7 @@ const App: FC = () => {
       {/* Windows */}
       {windows.map((win: WindowData) => (
         <Window
+          customClass={win.customClass}
           key={win.id}
           id={win.id}
           title={win.title}
