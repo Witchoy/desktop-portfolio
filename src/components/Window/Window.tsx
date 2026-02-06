@@ -8,11 +8,12 @@ interface WindowProps {
   title: string;
   position: Position;
   size: Size;
+  minSize: Size;
   zIndex: number;
   children: React.ReactNode;
   onClose: () => void;
   onPositionChange: (pos: Position) => void;
-  onSizeChange: (size: Size) => void;
+  onSizeChange: (size: Size, minSize: Size) => void;
   onFocus: () => void;
 }
 
@@ -21,7 +22,7 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
   const [isResizing, setIsResizing] = useState(false);
   const dragOffset = useRef<Position>({ x: 0, y: 0 });
   const resizeOffset = useRef<Size>({ width: 0, height: 0 });
-  const { onPositionChange, onSizeChange, onFocus, position, size } = win; // Destructure for easier access and linting
+  const { onPositionChange, onSizeChange, onFocus, position, size, minSize } = win;
 
   const handleMouseDown = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -54,10 +55,13 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
     const handleMouseMove = (e: MouseEvent) => {
       const newWidth = e.clientX - position.x - resizeOffset.current.width;
       const newHeight = e.clientY - position.y - resizeOffset.current.height;
+      if(newWidth < minSize.width || newHeight < minSize.height) {
+        return;
+      }
       onSizeChange({
-        width: Math.max(100, newWidth), // Minimum width
-        height: Math.max(50, newHeight), // Minimum height
-      });
+        width: Math.max(minSize.width, newWidth), 
+        height: Math.max(minSize.height, newHeight),
+      }, minSize);
     };
 
     const handleMouseUp = () => {
@@ -71,7 +75,7 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isResizing, onSizeChange, position.x, position.y]);
+  }, [isResizing, onSizeChange, position.x, position.y, minSize.width, minSize.height]);
 
   useEffect(() => {
     if (!isDragging) return;
@@ -94,7 +98,7 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging, onPositionChange]);
+  }, [isDragging, onPositionChange, position.x, position.y]);
 
   return (
     <div 

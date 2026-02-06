@@ -10,6 +10,7 @@ const INITIAL_WINDOWS: WindowData[] = [
                 y: window.innerHeight / 2 },
     zIndex: 1,
     size: { width: 400, height: 300 },
+    minSize: { width: 300, height: 200 },
   },
   {
     id: 'projects',
@@ -19,6 +20,7 @@ const INITIAL_WINDOWS: WindowData[] = [
                 y: window.innerHeight / 2 },
     zIndex: 1,
     size: { width: 400, height: 300 },
+    minSize: { width: 300, height: 200 },
   }
 ];
 

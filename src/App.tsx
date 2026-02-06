@@ -33,10 +33,11 @@ const App: FC = () => {
           title={win.title}
           position={win.position}
           size={win.size}
+          minSize={win.minSize}
           zIndex={win.zIndex}
           onClose={() => closeWindow(win.id)}
           onPositionChange={(pos) => updateWindowPosition(win.id, pos)}
-          onSizeChange={(size) => updateWindowSize(win.id, size)}
+          onSizeChange={(size, minSize) => updateWindowSize(win.id, size, minSize)}
           onFocus={() => bringToFront(win.id)}
         >
           {win.content}

@@ -14,6 +14,7 @@ export interface WindowData {
   content: React.ReactNode;
   position: Position;
   size: Size;
+  minSize: Size;
   zIndex: number;
 }
 

@@ -25,9 +25,9 @@ export default function useWindowManager() {
     ));
   };
 
-  const updateWindowSize = (id: string, size: Size) => {
+  const updateWindowSize = (id: string, size: Size, minSize: Size) => {
     setWindows(prev => prev.map(win =>
-      win.id === id ? { ...win, size } : win
+      win.id === id ? { ...win, size, minSize } : win
     ));
   }
 
