@@ -1,17 +1,8 @@
-import { useState, useEffect, type FC } from 'react';
+import { type FC } from 'react';
 import './AboutMe.scss';
 import profilePicture from '/profile.jpg';
 
-interface AboutMeProps {}
-
-const AboutMe: FC<AboutMeProps> = () => {
-  const [height, setHeight] = useState(0);
-  
-  useEffect(() => {
-    setHeight(document.documentElement.clientHeight);
-    console.log("height :", document.documentElement.clientHeight);
-  }, []);
-
+const AboutMe: FC = () => {
   return (
     <div className="about-me">
       <div className="about-me-header">

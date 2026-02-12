@@ -75,7 +75,7 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isResizing, onSizeChange, position.x, position.y, minSize.width, minSize.height]);
+  }, [isResizing, onSizeChange, position.x, position.y, minSize]);
 
   useEffect(() => {
     if (!isDragging) return;

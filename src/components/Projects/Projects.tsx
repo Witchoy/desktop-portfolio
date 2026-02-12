@@ -4,10 +4,8 @@ import type { ProjectData } from '../../types';
 import ProjectsCards from '../ProjectsCards/ProjectsCards';
 import { INITIAL_PROJECTS } from '../../data/InitialDatas';
 
-interface ProjectsProps {}
-
-const Projects: FC<ProjectsProps> = () => {
-  const [projects, setProjects] = useState<ProjectData[]>(INITIAL_PROJECTS);
+const Projects: FC = () => {
+  const [projects] = useState<ProjectData[]>(INITIAL_PROJECTS);
   
   return (
     <div className="projects">
