@@ -6,13 +6,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: var.$space-medium;
   margin: var.$space-medium;
-  width: calc(33.333% - 32px);
+  width: 300px;
   display: flex;
   flex-direction: column;
 
   &-image {
-    width: 100%;
-    height: 200px;
+    width: 50%;
+    height: 50%;
     object-fit: cover;
     border-radius: var.$border-radius-x-small;
     margin-bottom: var.$space-small;
@@ -41,7 +41,7 @@
   &-technology {
     background-color: var.$gb-accent-blue;
     border-radius: var.$border-radius-x-small;
-    padding: var.$pace-x-small var.$space-small;
+    padding: var.$space-x-small var.$space-small;
     font-size: var.$font-size-x-small;
     color: var.$gb-text-dark;
     font-weight: 500;

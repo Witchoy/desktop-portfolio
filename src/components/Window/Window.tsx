@@ -107,8 +107,8 @@ export const Window: React.FC<WindowProps> = (win: WindowProps) => {
       style={{ 
         transform: `translate(${position.x}px, ${position.y}px)`,
         zIndex: win.zIndex,
-        width: size.width,
-        height: size.height,
+        width: Math.max(size.width, minSize.width),
+        height: Math.max(size.height, minSize.height),
       }}
     >
       <div 

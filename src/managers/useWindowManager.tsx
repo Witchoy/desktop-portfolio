@@ -35,7 +35,7 @@ export default function useWindowManager() {
     setWindows(prev => {
       const maxZ = Math.max(...prev.map(w => w.zIndex), 0);
       return prev.map(win => {
-        if(win.zIndex < maxZ && win.id === id) {
+        if(win.zIndex <= maxZ && win.id === id) {
           return { ...win, zIndex: maxZ + 1 };
         }
         return win;
